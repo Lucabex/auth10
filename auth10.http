@@ -1,0 +1,6 @@
+@auth10_HostAddress = http://localhost:5202
+
+GET {{auth10_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
