@@ -9,5 +9,5 @@ public class AppDbContex : DbContext
     {
         
     }
-    public DbSet<User> User{get;set;}
+    public DbSet<User> Test{get;set;}
 }
