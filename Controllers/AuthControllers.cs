@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using auth10.Models;
 using auth10.Data;
 using auth10.DTO;
+using auth10.Records;
 using Microsoft.EntityFrameworkCore;
 
 namespace auth10.Controllers;
@@ -78,6 +79,21 @@ public class AuthControllers: ControllerBase
             return StatusCode(503,"service not available please try again later");
         }
 
+    }
+    [HttpGet("puzzle")]
+    public async Task<IActionResult> GetPuzzle()
+    {
+        try
+        {
+             var client = _factory.CreateClient();
+             var url = "https://lichess.org/api/puzzle/daily";
+
+             var response = await client.GetFromJsonAsync<DailyPuzzle>(url);
+
+        }catch(Exception ex)
+        {
+            return StatusCode(503,"Service not available, please try again later");
+        }
     }
 
 }
