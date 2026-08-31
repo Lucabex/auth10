@@ -89,6 +89,11 @@ public class AuthControllers: ControllerBase
              var url = "https://lichess.org/api/puzzle/daily";
 
              var response = await client.GetFromJsonAsync<DailyPuzzle>(url);
+             if(response?.puzzle?.Solution== null || response?.puzzle?.Fen == null)
+            {
+                return StatusCode(503,"Service not available please try again later");
+            }
+            return Ok(response);
 
         }catch(Exception ex)
         {

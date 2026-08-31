@@ -9,4 +9,4 @@ public record DailyPuzzle(
  public record Puzzle(
     [property:JsonPropertyName("solution")] List<string> Solution,
     [property:JsonPropertyName("fen")] string Fen
- )
+ );
