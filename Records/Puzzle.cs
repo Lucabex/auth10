@@ -3,7 +3,7 @@ using System.Text.Json.Serialization;
 namespace auth10.Records;
 
 public record DailyPuzzle(
-    [property:JsonPropertyName("puzzle")] Puzzle puzzle
+    [property:JsonPropertyName("puzzle")] Puzzle Puzzle
  );
 
  public record Puzzle(
