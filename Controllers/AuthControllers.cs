@@ -65,7 +65,7 @@ public class AuthControllers: ControllerBase
             var user = await _context.User.FirstOrDefaultAsync(u=>(u.Name ?? "").ToLower() == dto.Name.ToLower());
             if(user ==null || !BCrypt.Net.BCrypt.Verify(dto.Password, user.HashedPassword))
             {
-                return BadRequest("Invalid username or Password");
+                return Unauthorized("Invalid username or Password");
             }
             var response = new LogResp
             {
